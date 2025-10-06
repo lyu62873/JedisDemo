@@ -28,6 +28,14 @@ class JedisDemoApplicationTests {
         System.out.println("getResult: " + getResult);
     }
 
+    @Test
+    void testSet() {
+        long sadd = jedis.sadd("set", "a", "b");
+        System.out.println("sadd: " + sadd);
+        String getResult = jedis.smembers("set").toString();
+        System.out.println("getResult: " + getResult);
+    }
+
     @AfterEach
     void tearDown() {
         if (jedis != null) {
