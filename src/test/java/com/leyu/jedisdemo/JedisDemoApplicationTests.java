@@ -27,7 +27,7 @@ class JedisDemoApplicationTests {
         String getResult = jedis.get("name");
         System.out.println("getResult: " + getResult);
     }
-    
+
     @AfterEach
     void tearDown() {
         if (jedis != null) {
