@@ -36,6 +36,16 @@ class JedisDemoApplicationTests {
         System.out.println("getResult: " + getResult);
     }
 
+    @Test
+    void testList() {
+        jedis.lpush("list", "a");
+        jedis.lpush("list", "b");
+        jedis.rpush("list", "c");
+        System.out.println(jedis.lrange("list", 0, -1));
+        jedis.lpop("list");
+        System.out.println(jedis.lrange("list", 0, -1));
+    }
+
     @AfterEach
     void tearDown() {
         if (jedis != null) {
